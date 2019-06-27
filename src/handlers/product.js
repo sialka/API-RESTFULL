@@ -17,6 +17,11 @@ const getAll = async (request, h) => {
 	return { data: products.map(transformer)};
 };
 
+const find = async (req) => {
+	const product = await ProductModel.findById(req.params.id);
+	return { data: transformer(product) };
+};
+
 const save = async (req, h) => {	
 	const {name, price} = req.payload;
 
@@ -29,7 +34,14 @@ const save = async (req, h) => {
 	return h.response(transformer(product)).code(201);
 };
 
+const remove = async (req, h) => {
+	await ProductModel.findOneAndDelete({ _id: req.params.id });	
+	return h.response().code(204);
+};
+
 module.exports = {
 	getAll,
-	save
+	save,
+	remove,
+	find
 }
