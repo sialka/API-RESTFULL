@@ -6,7 +6,7 @@
 
 O projeto trata-se de uma servidor que conversa com o mongo.
 
-* API RESTful #1: Entenda! (Ilustrado!)
-* API RESTful #2: SETUP + Mongo & Docker + HapiJS (PRÁTICA)
-* API RESTful #3: Integrando o MongoDB (PRÁTICA)
+- [x] API RESTful #1: Entenda! (Ilustrado!)
+- [x] API RESTful #2: SETUP + Mongo & Docker + HapiJS (PRÁTICA)
+- [x] API RESTful #3: Integrando o MongoDB (PRÁTICA)
 
