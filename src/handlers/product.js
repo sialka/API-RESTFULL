@@ -1,6 +1,6 @@
 const ProductModel = require('../models/product');
 
-const transformer = product => ({	
+const transformer = product => ({
 	type: 'products',
 	id: product.id,
 	attributes: {
@@ -9,12 +9,12 @@ const transformer = product => ({
 	},
 	links: {
 		self: `/api/v1/products/${product.id}`
-	}	
+	}
 });
 
 const getAll = async (request, h) => {
 	const products = await ProductModel.find({});
-	return { data: products.map(transformer)};
+	return { data: products.map(transformer) };
 };
 
 const find = async (req) => {
@@ -22,8 +22,8 @@ const find = async (req) => {
 	return { data: transformer(product) };
 };
 
-const save = async (req, h) => {	
-	const {name, price} = req.payload;
+const save = async (req, h) => {
+	const { name, price } = req.payload;
 
 	const product = new ProductModel;
 	product.name = name;
@@ -35,7 +35,7 @@ const save = async (req, h) => {
 };
 
 const remove = async (req, h) => {
-	await ProductModel.findOneAndDelete({ _id: req.params.id });	
+	await ProductModel.findOneAndDelete({ _id: req.params.id });
 	return h.response().code(204);
 };
 
